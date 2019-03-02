@@ -1,0 +1,19 @@
+    1  touch zadaniowy.txt
+    2  more -5 zadaniowy.txt 
+    3  cat * | head -10
+    4  cat | head -5 | tail -3 zadaniowy.txt 
+    5  tac zadaniowy.txt | head -6 | tail -3
+    6  cat zadaniowy.txt | tr '\n' ' '
+    7  head -c 8 zadaniowy.txt
+    8  cat zadaniowy.txt | tr ' ' '\n' | sort | uniq >> indeks.txt 
+    9  cat zadaniowy.txt | tr ' ' '\n' >>zadaniowy2.txt
+   10  ls -Rp /etc | grep -v '/' | tr -s '\n' | wc -l 
+   11  ls | tr [a-z] [A-Z]
+   12  ls -l | cut -f '1 5 9' -d ' ' >> prawa.txt
+   13  ps -aux | cut -f 1 -d ' ' | sort | uniq -c | sort -r | head -5
+   14  cat /etc/passwd | cut  -d ':' -f 3 | sort | uniq | wc -l
+   15  cat zadaniowy.txt | sort | uniq -c | tr -s ' ' | cut -f 2 -d ' ' | wc -l
+   17  ls -l /etc | tr -s ' ' | cut -f 3 -d ' ' | sort | uniq -c
+   18  w
+   19  ls -l | tr -s ' ' | cut -f '5 9' -d ' ' | sort -n | cut -f 2 -d ' '
+   20  ls -l / | tr -s ' ' | cut -f '5 9' -d ' ' | sort -n | cut -f 2 -d ' ' | head -4 | sort

@@ -1,0 +1,8 @@
+F:\_Projects\JSONParser\JSONParser\bin\Debug\JSONParser.exe.config
+F:\_Projects\JSONParser\JSONParser\bin\Debug\JSONParser.exe
+F:\_Projects\JSONParser\JSONParser\bin\Debug\JSONParser.pdb
+F:\_Projects\JSONParser\JSONParser\bin\Debug\Newtonsoft.Json.dll
+F:\_Projects\JSONParser\JSONParser\obj\Debug\JSONParser.csprojResolveAssemblyReference.cache
+F:\_Projects\JSONParser\JSONParser\obj\Debug\JSONParser.csproj.CoreCompileInputs.cache
+F:\_Projects\JSONParser\JSONParser\obj\Debug\JSONParser.exe
+F:\_Projects\JSONParser\JSONParser\obj\Debug\JSONParser.pdb
