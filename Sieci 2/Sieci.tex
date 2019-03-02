@@ -1,0 +1,462 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\selectlanguage{polish}
+
+\hypersetup
+{
+	colorlinks = true,
+	linkcolor = black,
+	urlcolor = red,
+	linktoc  = all
+}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{gray},
+  commentstyle=\color{blue},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{SIECI}
+\author{Grzegorz Perzanowski}
+
+
+
+\begin{document}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+
+
+\section{Basic Router and Switch Configuration}
+
+	\paragraph{CTRL-SHIFT-6 twoim przyjacielem\\ TAB i '?' nie gryzą :>}
+	
+	\paragraph{Nazwa urządzenia}
+	\begin{lstlisting}[language=bash]
+	R1(config)# hostname <name>
+	\end{lstlisting}
+		
+	\paragraph{Wyłączenie irytujących rzeczy}
+	\begin{lstlisting}[language=bash]
+	R1(config)# no ip domain-lookup
+	R1(config)# line con 0
+	Switch(config-line)# logging synchronous 
+	\end{lstlisting}
+		
+	\paragraph{Konfiguracja interfejsu}
+	\begin{lstlisting}[language=bash]
+	R1(config)# interface <int-nr>
+	R1(config-if)# ip address <addr> <mask>
+	R1(config-if)# no shutdown
+	\end{lstlisting}
+		
+	\paragraph{Usuwanie adresu interfejsu}
+	\begin{lstlisting}[language=bash]
+	R1(config-if)# no ip address 
+	\end{lstlisting}
+		
+	\paragraph{Ustawianie Clock Rate}
+	\begin{lstlisting}[language=bash]
+	R1(config-if)# clock rate 128000
+	\end{lstlisting}
+	
+	\paragraph{wybór kilku portów}
+	\begin{lstlisting}[language=bash]
+	Switch(config)# int range f0/1 - 24, g0/1 - 2
+	\end{lstlisting}
+	
+	\paragraph{Podstawowa diagnostyka}
+	\begin{lstlisting}[language=bash]
+	R1# show ip interface brief
+	\end{lstlisting}
+	
+	\paragraph{Czyszczenie switcha - dla routera bez vlan}
+	\begin{lstlisting}[language=bash]	
+	S1# delete vlan.dat
+	S1# erase startup-config 
+	S1# reload
+	\end{lstlisting}
+		
+\newpage
+
+\section{Static Routing}
+		
+	\paragraph{Wyświetlenie tablicy routingu}
+	\begin{lstlisting}[language=bash]
+	R1# show ip route
+	\end{lstlisting}
+		
+	\paragraph{Routing statyczny}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip route <addr-sieci> <maska> <addr-na-ktory wysylac>
+	\end{lstlisting}
+		
+	\paragraph{Routing statyczny - na port}
+	\begin{lstlisting}[language=bash]
+	R2(config)#ip route <addr-sieci> <maska> <port-na-ktory-wysylac>
+	\end{lstlisting}
+		
+	\paragraph{Routing domyślny}
+	Nie wiesz co zrobić z tym pakietem to wyślij go tam
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip route 0.0.0.0 0.0.0.0 <port-lub-addr> <opcjonalnie-dystans-administracyjny>
+	\end{lstlisting}
+		
+\newpage
+	
+\section{RIPv2}
+	\paragraph{Podstawowe ustawienia}
+	\begin{lstlisting}[language=bash]
+	R2(config)# router rip
+	R2(config-router)# version 2
+	R2(config-router)# no auto-summary 
+	R2(config-router)# network <jakie sieci znam>
+	R2(config-router)# network <jw>
+	R2(config-router)# network <jw>
+	\end{lstlisting}
+		
+	\paragraph{Propagacja tablic routingu}
+	\begin{lstlisting}[language=bash]
+	R1(config-router)# default-information originate 
+	\end{lstlisting}
+		
+	\paragraph{Diagnostyka}
+	\begin{lstlisting}[language=bash]
+	R1# show ip route
+	R1# show ip protocols
+	\end{lstlisting}
+		
+\newpage
+
+\section{Basic Switch Security}
+	\paragraph{Hasło}
+	\begin{lstlisting}[language=bash]
+	S1(config)# service password-encryption 
+	S1(config)# enable secret class
+	\end{lstlisting}
+		
+	\paragraph{Adres dla switcha}
+	\begin{lstlisting}[language=bash]
+	Switch(config)# ip default-gateway 172.17.99.1
+	Switch(config)# end
+	\end{lstlisting}
+		
+	\paragraph{Show VLAN}
+	\begin{lstlisting}[language=bash]
+	Switch# show vlan brief
+	\end{lstlisting}
+		
+	\paragraph{Ustawienia hasła dostępu do konsoli}
+	\begin{lstlisting}[language=bash]	
+	Switch(config)# line console 0
+	Switch(config-line)# password cisco
+	Switch(config-line)# login
+	Switch(config-line)# logging synchronous 
+	Switch(config-line)# exit
+	\end{lstlisting}
+		
+	\paragraph{Telnet}
+	\begin{lstlisting}[language=bash]	
+	Switch(config)# line vty 0 15
+	Switch(config-line)# password cisco
+	Switch(config-line)# login
+	Switch(config-line)# end
+	\end{lstlisting}
+		
+	\paragraph{Pokazanie tablicy maców}
+	\begin{lstlisting}[language=bash]	
+	Switch# show mac address-table
+	\end{lstlisting}
+	
+\newpage
+
+\section{SSH}
+	\paragraph{Sprawdzenia czy da się postawić SSH}
+	\begin{lstlisting}[language=bash]	
+	S1# show ip ssh
+	\end{lstlisting}
+		
+	\paragraph{Konfiguracja domeny i klucza RSA}
+	\begin{lstlisting}[language=bash]	
+	S1(config)# ip domain-name cisco.com
+	S1(config)# crypto key generate rsa
+	\end{lstlisting}
+		
+	\paragraph{Aktywacja dostępu przez SSH}
+	\begin{lstlisting}[language=bash]
+	S1(config)# username admin secret ccna
+	S1(config)# line vty 0 15
+	S1(config-line)# transport input ssh
+	S1(config-line)# login local
+	S1(config-line)# exit
+	S1(config)# ip ssh version 2
+	\end{lstlisting}
+		
+		
+	
+\newpage	
+
+\section{VLAN}
+	\paragraph{Tworzenie VLAN-a}
+	\begin{lstlisting}[language=bash]
+	S1(config)# vlan <nr>
+	S1(config-vlan)# name <nazwa>
+	S1(config-vlan)# exit
+	\end{lstlisting}
+	
+	
+	\paragraph{Przydzielenie portu do vlan-u}
+	\begin{lstlisting}[language=bash]
+	S1(config)# interface <int-nr>
+	S1(config-if)# switchport mode access
+	S1(config-if)# switchport access vlan <vlan-nr>
+	S1(config-line)# end
+	\end{lstlisting}
+	
+\newpage
+
+\section{Port Security}
+	\paragraph{Enable port security}
+	\begin{lstlisting}[language=bash]
+	S1(config-if)# switchport port-security
+	\end{lstlisting}
+		
+	\paragraph{Configure static entry for the MAC address}
+	\begin{lstlisting}[language=bash]
+	S1(config-if)# switchport port-security mac-address xxxx.xxxx.xxxx 
+	\end{lstlisting}
+		
+	\paragraph{Assign MAC address dynamic}
+	\begin{lstlisting}[language=bash]
+	S1(config-if)# switchport port-security mac-address sticky
+	\end{lstlisting}
+		
+	\paragraph{Show port security}
+	\begin{lstlisting}[language=bash]
+	S1# show port-security interface f0/5
+	\end{lstlisting}
+		
+	\paragraph{Restart port}
+	\begin{lstlisting}[language=bash]
+	S1(config-if)# shutdown
+	S1(config-if)# no shutdown
+	\end{lstlisting}
+		
+		
+\newpage
+	
+\section{VLAN - Trunk}
+	\paragraph{Ustawienia portu w tryb trunk}
+	\begin{lstlisting}[language=bash]
+	S1(config)# interface range g0/1 -2
+	S1(config-if-range)# switchport mode trunk 
+	\end{lstlisting}
+		
+	\paragraph{Ustalenie jakie VLAN ma przepuszczać trunk}
+	\begin{lstlisting}[language=bash]
+	S1(config-if-range)# switchport trunk allowed vlan <vlan-list>
+	\end{lstlisting}
+		
+	\paragraph{Diagnostyka}
+	\begin{lstlisting}[language=bash]
+	S1# show vlan brief
+	S1# show interfaces trunk 
+	\end{lstlisting}
+		
+	\paragraph{Zmiana enkapsulacji na dot1q - jakby normalnie nie działało}
+	\begin{lstlisting}[language=bash]
+	S1(config-if)# switchport trunk encapsulation dot1q
+	\end{lstlisting}
+		
+		
+	\paragraph{Router na kiju (lub jak kto woli Router-on-the-stick)\\}
+	INFO: bez tego shutdown na końcu nie zadziała
+	\begin{lstlisting}[language=bash]		
+	S1(config)# interface g0/1
+	S1(config-if)# switchport mode trunk 
+	
+	R1(config-if)# int g0/0.<vlan-nr>
+	R1(config-subif)# encapsulation dot1Q <vlan-nr>
+	R1(config-subif)# ip address <ip-addr> <maska>
+	
+	R1(config-subif)# int g0/0
+	R1(config-if)# no shutdown 
+	\end{lstlisting}
+	
+\newpage
+
+\section{Access Control Lists}
+	\paragraph{Tworzenie ACL}
+	\begin{lstlisting}[language=bash]
+	R3(config)# access-list 1 remark Allow R1 LANs Access 
+	R3(config)# access-list 1 permit 192.168.1 0.0 0.0.0.255 
+	R3(config)# access-list 1 permit 192.168.2 0.0 0.0.0.255 
+	R3(config)# access-list 1 deny any 
+	\end{lstlisting}
+	
+	\paragraph{Przypisanie ACL do interfejsu}
+	\begin{lstlisting}[language=bash]
+	R3(config)# interface g0/1 
+	R3(config-if)# ip access-group 1 out 
+	\end{lstlisting}
+		
+	\paragraph{Diagnostyka}
+	\begin{lstlisting}[language=bash]
+	R3# show access-list
+	\end{lstlisting}
+		
+	\paragraph{Nazwana ACL}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip access-list standard BRANCH-OFFICE-POLICY
+	R1(config-std-nacl)# permit host 192.168.30.3
+	R1(config-std-nacl)# permit 192.168.40.0 0.0.0.255 
+	\end{lstlisting}
+		
+	\paragraph{Przypisanie nazwanej ACL do interfejsu}
+	\begin{lstlisting}[language=bash]
+	R1(config)# interface g0/1 
+	R1(config-if)# ip access-group BRANCH-OFFICE-POLICY out
+	\end{lstlisting}
+		
+	\paragraph{Configuring an IPv4 ACL on VTY Lines}
+	\begin{lstlisting}[language=bash]
+	Router(config)# access-list 99 permit host 10.0.0.1
+	Router(config)# line vty 0 15
+	Router(config-line)# access-class 99 in
+	\end{lstlisting}
+		
+		
+\newpage
+
+\section{DHCP}
+	\paragraph{Wyłączenie adresów z puli}
+	\begin{lstlisting}[language=bash]
+	R2(config)# ip dhcp excluded-address <addr-start> <addr-stop>
+	\end{lstlisting}
+		
+	\paragraph{Konfiguracja puli}
+	\begin{lstlisting}[language=bash]
+	R2(config)# ip dhcp pool <nazwa>
+	R2(dhcp-config)# network <addr-network> <maska>
+	R2(dhcp-config)# default-router <addr-ip-gateway>
+	R2(dhcp-config)# dns-server <addr>
+	R2(dhcp-config)# exit 
+	\end{lstlisting}
+		
+	\paragraph{IP Helper Address\\}
+	
+	Ustawiamy na interfejsie, na którym normalnie stoi brama domyślna.\\
+	Adres helper to adres portu urządzenia połączonego bezpośrednio z naszym routerem, na którym stoi DHCP
+	\begin{lstlisting}[language=bash]
+	R1(config)# interface <int-name>
+	R1(config-if)# ip helper-address <ip-addr>
+	\end{lstlisting}
+	
+	\paragraph{Verification}
+	\begin{lstlisting}[language=bash]
+	R1# show ip dhcp binding
+	R1# show ip dhcp pool
+	\end{lstlisting}
+
+\newpage		
+
+\section{NAT}
+	\subsection{Static NAT}
+	\paragraph{Statyczne ustawienie tłumaczenia adresów}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat inside source static <inside_addr> <outside_addr>
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu wewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat inside
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu zewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat outside
+	\end{lstlisting}
+	
+	\subsection{Dynamic NAT}
+	\paragraph{Ustawianie puli adresów dla NAT-a}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat pool <pool_name> <range-addr-start> <range-addr-end> netmask <mask>
+	\end{lstlisting}
+	\paragraph{Tworzenie ACL akceptującej tylko adresy do translacji}
+	\begin{lstlisting}[language=bash]
+	R1(config)# access-list 1 permit <net-addr> <negate-mask>
+	\end{lstlisting}
+	\paragraph{Związanie ACL z pulą adresów}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat inside source list <acl-list-number> pool <name>
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu wewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat inside
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu zewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat outside
+	\end{lstlisting}
+	
+	\subsection{PAT}
+	\paragraph{Ustawianie puli adresów dla PAT-a}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat pool <pool_name> <range-addr-start> <range-addr-end> netmask <mask>
+	\end{lstlisting}
+	\paragraph{Tworzenie ACL akceptującej tylko adresy do translacji}
+	\begin{lstlisting}[language=bash]
+	R1(config)# access-list 1 permit <net-addr> <negate-mask>
+	\end{lstlisting}
+	\paragraph{Związanie ACL z konkretnym portem -> nie tworzymy wtedy puli}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat inside source list <acl-list-number> interface <int-name> overload
+	\end{lstlisting}
+	\paragraph{Związanie ACL z pulą adresów}
+	\begin{lstlisting}[language=bash]
+	R1(config)# ip nat inside source list <acl-list-number> pool <name> overload
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu wewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat inside
+	\end{lstlisting}
+	\paragraph{Ustawienie interfejsu zewnętrznego}
+	\begin{lstlisting}[language=bash]
+	R1(config)# int <interface>
+	R1(config-if)# ip nat outside
+	\end{lstlisting}
+	
+	\subsection{Verifying NAT}
+	\begin{lstlisting}[language=bash]
+	R1(config)# show ip nat translations
+	R1(config)# show ip nat statistics
+	\end{lstlisting}
+			
+\end{document}
