@@ -32,6 +32,19 @@ Inżynieria oprogramowania
 - Przypadek użycia jest dobrze określoną interakcją między użytkownikiem a systemem
 - Dziedziczenie przypadku użycia:
 
-![graf][]
+![graf](https://github.com/GrPe/UMCS-Public/tree/master/Inzynieria_Oprogramowania/img/w1/1.png)
 
 Zwrot skierowany w stronę bytu niezależnie logicznego
+
+- Przebieg podstawowy
+
+![graf](https://github.com/GrPe/UMCS-Public/tree/master/Inzynieria_Oprogramowania/img/w1/2.png)
+
+Po A **zawsze** występuje B
+
+- Przebieg opcjonalny
+
+![graf](https://github.com/GrPe/UMCS-Public/tree/master/Inzynieria_Oprogramowania/img/w1/3.png)
+
+B **czasami** rozszerza A
+
