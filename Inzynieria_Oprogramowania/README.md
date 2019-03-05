@@ -36,15 +36,26 @@ Inżynieria oprogramowania
 
 Zwrot skierowany w stronę bytu niezależnie logicznego
 
-- Przebieg podstawowy
+- Przebieg podstawowy: Po A **zawsze** występuje B
 
 ![graf](img/w1/2.png)
 
-Po A **zawsze** występuje B
-
-- Przebieg opcjonalny
+- Przebieg opcjonalny: B **czasami** rozszerza A
 
 ![graf](img/w1/3.png)
 
-B **czasami** rozszerza A
+### Aktorzy:
 
+- Osoby wchodząca w interakcję z
+  - systemem
+  - systemami wewnętrznymi
+  - cześciami systemu, które mają wpływ na funkcjonowanie systemu, ale nie mogą być zmieniane przez system
+- Rozpoznawanie aktorów:
+  - Kto będzie używał podstawowych funkcji?
+  - Kto wymaga wspomagania w pracy i przy których zadaniach?
+  - Kto jest adminem i utrzymuje system?
+  - Jakimi urządzeniami steruje system?
+  - Z jakimi systemami system ma współpracować?
+  - Kto jest zainteresowany rezultatem działania?
+
+Diagramy przypadków mogą być ogólne i szczegółowe.
