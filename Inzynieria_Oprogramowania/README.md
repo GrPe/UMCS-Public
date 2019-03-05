@@ -75,24 +75,38 @@ public class Klasa
 }
 ```
 
-Ikona klasy UML dzieli się na 3 główne obszary:
+### Ikona klasy UML dzieli się na 3 główne obszary:
 
 - Nazwa klasy - musi być unikalna
 - Lista atrybutów
 - Lista operacji
 - class responsibility (opcjonalnie)
 
-Typy operacji:
+#### Typy operacji:
 
-- <<constructor>>, <<ctor>>, <<create>>
-- <<destructor>>, <<dtor>>, <<destroy>>
-- <<update>> - zmiana stanu obiektu
-- <<query>> - nie zmienia stanu obiektu
+- `<<constructor>>`, `<<ctor>>`, `<<create>>`
+- `<<destructor>>`, `<<dtor>>`, `<<destroy>>`
+- `<<update>>` - zmiana stanu obiektu
+- `<<query>>` - nie zmienia stanu obiektu
 
-Atrybuty statyczne:
+#### Atrybuty statyczne:
 
 - private '-'
 - public '+'
 - protected '#'
 - package '~'
+
+### Deklaracja atrubutu w klasie:
+
+Zazwyczaj opisywany przez nazwę i typ
+> [widocznosc] nazwa_atrybutu : typ[liczebnosc] {ograniczenia} = wartosc_domyslna
+
+- {ordered} - obiekty są uporządkowane
+- {unordered} - nieuporządkowane
+- {unique}
+- {nonunique}
+- {readOnly}
+- {frozen} - readOnly po pierwszym zapisie
+
+### Deklaracja operacji w klasie:
 
