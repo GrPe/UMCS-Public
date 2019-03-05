@@ -2,7 +2,7 @@
 Inżynieria oprogramowania
 ===
 
-## Wykład 1 - UML
+## Wykład 1 - UML (Podstawy, Przypadki użycia)
 
 - Program komputerowy - model fragmentu rzeczywistości
 - Język programowania - model modelu -  *metamodel*
@@ -59,3 +59,40 @@ Zwrot skierowany w stronę bytu niezależnie logicznego
   - Kto jest zainteresowany rezultatem działania?
 
 Diagramy przypadków mogą być ogólne i szczegółowe.
+
+## Wykład 2 - UML (Diagramy klas)
+
+- Dane zdefiniowane w klasie to atrybuty
+- funkcje składowe to operacje
+
+Przykład deklaracji klasy:
+
+```csharp
+public class Klasa
+{
+    private object atrubut;
+    public void Operacja();
+}
+```
+
+Ikona klasy UML dzieli się na 3 główne obszary:
+
+- Nazwa klasy - musi być unikalna
+- Lista atrybutów
+- Lista operacji
+- class responsibility (opcjonalnie)
+
+Typy operacji:
+
+- <<constructor>>, <<ctor>>, <<create>>
+- <<destructor>>, <<dtor>>, <<destroy>>
+- <<update>> - zmiana stanu obiektu
+- <<query>> - nie zmienia stanu obiektu
+
+Atrybuty statyczne:
+
+- private '-'
+- public '+'
+- protected '#'
+- package '~'
+
