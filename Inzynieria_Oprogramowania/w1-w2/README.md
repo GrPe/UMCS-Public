@@ -32,17 +32,17 @@ Inżynieria oprogramowania
 - Przypadek użycia jest dobrze określoną interakcją między użytkownikiem a systemem
 - Dziedziczenie przypadku użycia:
 
-![graf](img/w1/1.png)
+![graf](1.png)
 
 Zwrot skierowany w stronę bytu niezależnie logicznego
 
 - Przebieg podstawowy: Po A **zawsze** występuje B
 
-![graf](img/w1/2.png)
+![graf](2.png)
 
 - Przebieg opcjonalny: B **czasami** rozszerza A
 
-![graf](img/w1/3.png)
+![graf](3.png)
 
 ### Aktorzy:
 
@@ -110,3 +110,31 @@ Zazwyczaj opisywany przez nazwę i typ
 
 ### Deklaracja operacji w klasie:
 
+> [widocznosc] nazwaOperacji : [(lista_parametrów)][:typ_wyniku] [właściwości]
+
+lista parametrów:
+
+> [tryb] nazwa : typ [ = wartosc_domyslna]
+
+#### Tryby:
+
+- in - parametr wejściowy readOnly
+- out - parametr wyjściowy - do modyfikacji
+- inout - parametr wejściowy i wyściowy
+
+#### Właściwości:
+
+- leaf - Funkcja niepolimorficzna (bez virtual)
+- isQuery - nie zmiena stanu obiektu (const)
+- sequantal, quarded, concurent - Operacja współbieżne
+
+### Typy operacji
+
+- Konstruktor
+- Destruktor
+- Mutator - np. settter (zmiena stan atrybutu)
+- Akcesor - np. getter (odczyt wartości atrubutu)
+- Iterator - pozwala na kolejna przetwarzanie wszystkich elementów struktury danych
+- Finalizator - (W Javie i C# taki pseudo-destruktor)
+- Operacja statyczna - (static)
+- Własność - (Właściwości w C#)
