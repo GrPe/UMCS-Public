@@ -138,3 +138,50 @@ lista parametrów:
 - Finalizator - (W Javie i C# taki pseudo-destruktor)
 - Operacja statyczna - (static)
 - Własność - (Właściwości w C#)
+
+### Klasy
+
+- Konkretne - wszystkie operacje zostały zaimplementowane
+- Polimorficzne - klasa, w której zdefiniowano jedną lub więcej operacji wirtualnych
+- Abstrakcyjne - występuje jedna lub więcej operacji czysto wirtualnych (abstrakcyjnch)
+
+- Metaklasa - klasa, która dysponuje specjalnym zestawem metod odpowiadającym podstawowym operacjom klasy np. sposób tworzenia obiektów, wyłowyłanie metod, stosowanie mechanizmów dziedzidzenia
+- Aktywne - a dokładniej obiekty tych klas mogę być źródłem nowego procesu lub wątku.
+
+### Związki Klas
+
+#### Generalizacja 
+
+- "dziedziczenie" oznaczane strzałką z zamkniętym niezamalowanym grotem skierowanym w stronę bytu logicznie niezależnego.
+
+#### Zależność
+
+- na liście argumentów funkcji wystepuje odwołanie do innej klasy lub wskaźnik/referencja do niej
+- w ciele funkcji składowej występuje zmienna/wskaźnik/referencja typu innej klasy
+- typem powrotnym jest wskaźnik/obiekt innej klasy
+- `<<call>>` - operacja w klasie a wywołuje operacje z klasy B
+- `<<create>>` - klasa A tworzy egzemplarz klasy B
+- `<<instantiate>>` - obiekt klasy A jest egzemplarzem klasy B
+- `<<use>>` - do zaimplementowanie klasy A jest wymagana klasa B
+- `<<friend>>` - zależność klas zaprzyjaźnionych (c++ only)
+
+#### Asocjacja (Powiązanie)
+
+- obiekty jednego typu są połączone z obiektami innego typu poprzez atrybuty danych klas
+- Zazwyczaj powiązanie działa w obie strony (jeśli nie zaznaczono inaczej)
+- Klasa powiązana:
+  - Forma przejściowa między dwoma klasami np. _zakup książki_ jest formą przejściową między _studentem_ a _książką_.
+- Powiązania kwalifikowane
+  - uzupełnia zwykłe powiązanie określając atrybuty decydujące o związku między klasami
+
+#### Agregacja prosta
+
+- Powiązanie całość-cześć
+- oznaczamy symbolem pustego diamentu przy klasie zawierającej całość
+
+#### Agregacja całkowita (kompozycja)
+
+- relacja wyłącznej własności.
+- proces konstrukcji całości poprzedza skonstruowanie elementów składowych
+- proces destrukcji całości poprzedza destrukcja elementów składowych
+- oznaczamy symbolem wypełnionego diamentu po stronie całości
