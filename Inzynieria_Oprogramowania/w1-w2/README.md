@@ -185,3 +185,7 @@ lista parametrów:
 - proces konstrukcji całości poprzedza skonstruowanie elementów składowych
 - proces destrukcji całości poprzedza destrukcja elementów składowych
 - oznaczamy symbolem wypełnionego diamentu po stronie całości
+
+#### Liczebności
+
+- Określa ile elementów danej klasy agreguje klasa agregująca
