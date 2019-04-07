@@ -6,11 +6,13 @@ Inżynieria oprogramowania
 
 - Program komputerowy - model fragmentu rzeczywistości
 - Język programowania - model modelu -  *metamodel*
+- Celem modelu jest stworzenie poprawnej abstakcji rzeczywistego świata
 
 ### Perspektywy:
 
 - Perspektywa przypadków użycia
   - opisuje zachowanie systemu z punktu widzenia użytkownika, analityka, testera.
+  - Zawiera elementy statyczne jak dynamiczne
   - Najbardziej abstrakcyjna perspektywa.
   - Nie można uzyskać kodu
 - Perspektywa projektowa
@@ -136,7 +138,7 @@ lista parametrów:
 - Akcesor - np. getter (odczyt wartości atrubutu)
 - Iterator - pozwala na kolejna przetwarzanie wszystkich elementów struktury danych
 - Finalizator - (W Javie i C# taki pseudo-destruktor)
-- Operacja statyczna - (static)
+- Operacja statyczna - (static) oznaczana jest na diagramie klas poprzez podkreślenie
 - Własność - (Właściwości w C#)
 
 ### Klasy
@@ -159,6 +161,7 @@ lista parametrów:
 - na liście argumentów funkcji wystepuje odwołanie do innej klasy lub wskaźnik/referencja do niej
 - w ciele funkcji składowej występuje zmienna/wskaźnik/referencja typu innej klasy
 - typem powrotnym jest wskaźnik/obiekt innej klasy
+- Oznaczana linią przerywaną zakończoną strzałką zwróconą w stronę klasy niezależnej
 - `<<call>>` - operacja w klasie a wywołuje operacje z klasy B
 - `<<create>>` - klasa A tworzy egzemplarz klasy B
 - `<<instantiate>>` - obiekt klasy A jest egzemplarzem klasy B
@@ -178,6 +181,8 @@ lista parametrów:
 
 - Powiązanie całość-cześć
 - oznaczamy symbolem pustego diamentu przy klasie zawierającej całość
+- Klasa agregowana nie wpływa na życie klasy agregującej
+- Klasa agregująca nie wpływa na życie klasy agregowanej
 
 #### Agregacja całkowita (kompozycja)
 
@@ -189,3 +194,23 @@ lista parametrów:
 #### Liczebności
 
 - Określa ile elementów danej klasy agreguje klasa agregująca
+
+#### Klasy zagnieżdżone (zawierająca)
+
+- Czyli klasa w klasie np. iterator
+
+#### Interfejsy
+
+- Wygląda prawie tak jak klasa
+- Zawiera nazwę oraz stereotyp `<<interface>>`
+- Zawiera tylko operacje, nie zawiera atrybutów
+
+![inter](4.png)
+
+#### Typy wyliczeniowe
+
+![enum](5.png)
+
+#### Template (Wzorce klas)
+
+![template](6.png)
