@@ -6,9 +6,9 @@ Inżynieria oprogramowania
 
 ### Diagramy czynności
 
-- Służą do sterowania przepływem czynności między wykonywanymi czynnościami
+- Służą do modelowania przepływu sterowania między wykonywanymi czynnościami
 - To te przypominające schematy blokowe
-- Wyróżniamy pole startowe oznaczone czarną kropką oraz pole końcowe (białe kółko z czarną kropką)
+- Wyróżniamy pole startowe oznaczone czarnym kółkiem oraz pole końcowe (białe kółko z czarną kropką)
 
 ![czynnosc](1.png)
 
@@ -96,9 +96,29 @@ Inżynieria oprogramowania
 
 ![rec](15.png)
 
-- Pętle:
+#### Bloki
 
 ![loop](16.png)
+
+- **alt** - (alternative) określający warunek wykonania bloku (*if-else*), warunek umieszcza się wewnątrz bloku w nawiasach kwadratowych
+- **opt** - (optional) reprezetuje instrukcję *if* (bez *else*)
+- **par** - (parallel) nakazuje wykonanie operacji równolegle
+- **critical** - blok atomowy, obszar krytyczny
+- **loop** - pętle *for* lub *while*
+- **break** - wykonanie fragmentu i zakończenie istrukcji
+- **neg** - funkcjonalności nieprawidłowe - wskazują na wyjątki, które muszą zostać obsłużone
+- **strict** - ścisłe uporządkowanie komunikatów
+- **seq** - słabe uporządkowanie dotyczy komunikatów z kilku linii mogących wystąpić w dowolnym porządku
+- **ignore** - komunikaty nie mają istotnego wpływu na całość komunikacji
+- **consider** - istotność - komunikaty muszą zostać wykonane
+
+#### Techniki tworzenia diagramów sekwencji
+
+- ustalenie otoczenia (operacje, przypadki użycia)
+- zidentyfikowanie obiektów biorących udział w operacji (od lewej najważniejsze)
+- narysowanie linii życia obiektów
+- dodanie komunikatu inicjującego kolejne komunikaty pod nim
+- dodanie aktywacji (ośrodka sterowania)
 
 ### Diagramy komunikacji (kooperacji)
 
