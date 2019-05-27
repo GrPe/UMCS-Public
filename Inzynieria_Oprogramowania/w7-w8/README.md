@@ -328,4 +328,10 @@ Nie należy tworzyć klas i pakietów o średniej niestabilności 0.3 - 0.7
 - % klas abstrakcyjnych w stosunku do wszystkich klas
 
 ## Metryki obiektowe CK
-//todo
+
+- Opisują one relacje między klasami oraz ich złożoność i jej wpływ na utrzymywalność kodu.
+- Bazują na analizie drzewa dziedziczenia oraz pojedynczych klas
+- Nie nadają się do przewidywania czasu czy wysiłku koniecznego do implementacji
+- Służą do wskazania potencjalnych słabych punktów architektury systemu.
+
+### WMC - Weighted Methods per Class (ilość metod w danej klasie)
