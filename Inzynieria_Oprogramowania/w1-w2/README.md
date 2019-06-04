@@ -72,7 +72,7 @@ Przykład deklaracji klasy:
 ```csharp
 public class Klasa
 {
-    private object atrubut;
+    private object atrybut;
     public void Operacja();
 }
 ```
@@ -135,7 +135,7 @@ lista parametrów:
 - Konstruktor
 - Destruktor
 - Mutator - np. settter (zmiena stan atrybutu)
-- Akcesor - np. getter (odczyt wartości atrubutu)
+- Akcesor - np. getter (odczyt wartości atrybutu)
 - Iterator - pozwala na kolejna przetwarzanie wszystkich elementów struktury danych
 - Finalizator - (W Javie i C# taki pseudo-destruktor)
 - Operacja statyczna - (static) oznaczana jest na diagramie klas poprzez podkreślenie
