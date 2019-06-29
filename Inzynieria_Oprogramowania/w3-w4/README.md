@@ -2,11 +2,16 @@
 Inżynieria oprogramowania
 ===
 
-## Wykład 3/4 - UML (Diagramy czynności, obiektów, stanów i sekwencji)
+# Wykład 3/4 - UML (Diagramy czynności, obiektów, stanów i sekwencji)
 
-### Diagramy czynności
+## Diagramy czynności
 
 - Służą do modelowania przepływu sterowania między wykonywanymi czynnościami
+- Czynności są wieloetapowymi działaniami, których wynikiem jest pewna akcja, składająca się z niepodzielnych kroków
+    - np: Obliczenie wyrażenia arytmetycznego
+    - Wywołanie operacji
+    - Wysłanie sygnału
+    - Utworzenie lub zniszczenie obiektu
 - To te przypominające schematy blokowe
 - Wyróżniamy pole startowe oznaczone czarnym kółkiem oraz pole końcowe (białe kółko z czarną kropką)
 
@@ -28,14 +33,14 @@ Inżynieria oprogramowania
 
 ![responsibility](5.png)
 
-### Diagramy obiektów
+## Diagramy obiektów
 
-#### Rodzaje obiektów
+### Rodzaje obiektów
 
 ![objects](6.png)
 
 - obiekt nazwany
-- obiekt anonimowy
+- obiekt anonimowy (wskaźnik, referencja)
 - obiekt zawierający ścieżkę dostępu do pakietu z def. klasy
 - obiekt osierocony
 - obiekt aktywny
@@ -68,11 +73,14 @@ Inżynieria oprogramowania
 
 ![alt](10.png)
 
-### Diagramy sekwencji
+### Diagramy sekwencji (przebiegu)
 
 - Inaczej diagramy przebiegu pozwalają modelować wzajemną interakcję obiektów w czasie.
 - Obiekty mogą na siebie wzajemnie oddziaływać modyfikując stan (wartości) swoich atrybutów
 - Żądanie wykonania operacji nazywane jest komunikatem
+- Komunikat składa się zwykle z:
+    - wskazania docelowane obiektu (poprzez odwołanie się do nazwy obiektu)
+    - wskazania udostępnianej przez obiekt docelowy operacji, której wykowania żąda obiekt źródłowy
 - Przetworzenie otrzymanego komunikatu powoduje zmianę stanu obiektu, a do obiektu źródłowego może przesłana być odpowiedź.
 - Komunikaty mogą być blokujące (synchroniczne) albo nieblokujące (asynchroniczne)
 
@@ -130,5 +138,14 @@ Inżynieria oprogramowania
 
 ### Komponenty
 
-- wymienna część systemu implementująca jedną lub większą liczbę klas
-- Wszystkie fizyczne pliki określane są mianem __artefaktów__
+- Wszelkiego rodzaju fizyczne pliki określane są ogólnie mianem artefaktów `<<artifact>>`
+- W przeciwieństwie do klas, które są pojęciem logicznym, komponenty realnie rezydują w komputerze
+- W odróźnieniu od artefaktów, komponenty definiują funkcjonalność systemu
+- Komponent jest implementacją jednej lub większej liczby klas
+- Artefakt może być implementacją komponentu.
+
+![komponent](18.png)
+
+- Komponent to grupa klas pozostających ze sobą w dobrze zdefiniowanych relacjach (dziedziczenie, powiązania, zależności) i służą jednemu konkretnemu celowi
+- Klasy wewnątrz komponentu mają silne związki między sobą i słabe poza nim
+- Dzięki temu komponenty mogą być rozwijane niezależnie i zamiennie wykorzystywane zależnie od kontekstu, bez konieczności modyfikowania innych komponentów
