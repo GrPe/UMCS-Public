@@ -91,7 +91,7 @@ Diagramy przypadków mogą być ogólne i szczegółowe.
 ## Wykład 2 - UML (Diagramy klas)
 
 - Dane zdefiniowane w klasie to atrybuty
-- funkcje składowe to operacje
+- Funkcje składowe to operacje
 
 Przykład deklaracji klasy:
 
@@ -103,21 +103,23 @@ public class Klasa
 }
 ```
 
-### Ikona klasy UML dzieli się na 3 główne obszary:
+### Ikona klasy UML dzieli się na 3 główne obszary
 
-- Nazwa klasy - musi być unikalna
+- Nazwa klasy
+    - musi być unikalna
+    - Może być zapisana w formie prostej, lub poprzedzona nazwą pakietu (forma ścieżkowa)
 - Lista atrybutów
 - Lista operacji
 - class responsibility (opcjonalnie)
 
-#### Typy operacji:
+#### Typy operacji
 
 - `<<constructor>>`, `<<ctor>>`, `<<create>>`
 - `<<destructor>>`, `<<dtor>>`, `<<destroy>>`
 - `<<update>>` - zmiana stanu obiektu
 - `<<query>>` - nie zmienia stanu obiektu
 
-#### Atrybuty statyczne:
+#### Specyfikatory dostępu
 
 - private '-'
 - public '+'
@@ -136,7 +138,7 @@ Zazwyczaj opisywany przez nazwę i typ
 - {readOnly}
 - {frozen} - readOnly po pierwszym zapisie
 
-### Deklaracja operacji w klasie:
+### Deklaracja operacji w klasie
 
 > [widocznosc] nazwaOperacji : [(lista_parametrów)][:typ_wyniku] [właściwości]
 
@@ -144,13 +146,13 @@ lista parametrów:
 
 > [tryb] nazwa : typ [ = wartosc_domyslna]
 
-#### Tryby:
+#### Tryby
 
 - in - parametr wejściowy readOnly
 - out - parametr wyjściowy - do modyfikacji
 - inout - parametr wejściowy i wyściowy
 
-#### Właściwości:
+#### Właściwości
 
 - leaf - Funkcja niepolimorficzna (bez virtual)
 - isQuery - nie zmiena stanu obiektu (const)
@@ -178,9 +180,10 @@ lista parametrów:
 
 ### Związki Klas
 
-#### Generalizacja 
+#### Generalizacja
 
 - "dziedziczenie" oznaczane strzałką z zamkniętym niezamalowanym grotem skierowanym w stronę bytu logicznie niezależnego.
+- Związek między klasą bazową a klasą pochodną
 
 #### Zależność
 
@@ -188,7 +191,7 @@ lista parametrów:
 - w ciele funkcji składowej występuje zmienna/wskaźnik/referencja typu innej klasy
 - typem powrotnym jest wskaźnik/obiekt innej klasy
 - Oznaczana linią przerywaną zakończoną strzałką zwróconą w stronę klasy niezależnej
-- `<<call>>` - operacja w klasie a wywołuje operacje z klasy B
+- `<<call>>` - operacja w klasie A wywołuje operacje z klasy B
 - `<<create>>` - klasa A tworzy egzemplarz klasy B
 - `<<instantiate>>` - obiekt klasy A jest egzemplarzem klasy B
 - `<<use>>` - do zaimplementowanie klasy A jest wymagana klasa B
