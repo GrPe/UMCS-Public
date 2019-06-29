@@ -9,12 +9,20 @@ Inżynieria oprogramowania
 - Proces __weryfikacji__ odpowiada na pytanie: "Czy produkt tworzony jest prawidłowo?"
 - Proces __walidacji__ odpowiada na pytanie: "Czy tworzony produkt jest prawidłowy?"
 
+- Weryfikujemy to, co da się wyliczyć, wykazać logicznie i nie ma jak zanegować tego, co już zweryfikowane
+    - Proces zero-jedynkowy, Czy produkt zachowuje się tak jak ustalono w dokumentacji
+    - np. Jeśli jakaś funkcjonalnośc zwraca liczbę to można sprawdzić jej poprawność
+    - czy odpowiedź systemu nastąpi w konkretnie ustalonym czasie
+    - czy następuje przesłanie odpowiedniego pliku między serwerem a klientem
+- Walidacja jest po stronie odbiorcy. Czy produkt spełnia wymagania klienta
+
 ![e](e.png)
 
 ## Model dojrzałości
 
 - __CMM/CMMI__ jest to model opisujący kluczowe elementy efektywnego procesu konstruowania oprogramowania.
 - Jest to też model dojrzałości organizacji w obszarze IT lub zbiór dobrych praktyk dotyczących procesów wytwarzania oprogramowania.
+- Model dojrzałości służy do oceny procesu tworzenia oprogramowania.
 
 ### Diagram fazowy
 
@@ -59,8 +67,11 @@ Inżynieria oprogramowania
 
 ### Metodyka
 
-- jest ustandaryzowanym dla wybranego obszaru wiedzy/nauki podejściem do rozwiązywania właściwych problemów.
+- jest ustandaryzowanym dla wybranego obszaru wiedzy/nauki podejściem do rozwiązywania właściwych problemów
 - Metodyki abstahują od merytorycznego kontekstu danego obszaru, a skupiają się na metodach realizacji zadań
+- jest to spójny, logicznie uporządkowany zestaw metod i procedur technicznych oraz organizatorskich służących zespołowi wykonawczemu do analizy rzeczywistości
+- jest to zestaw pojęć, notacji, modeli, języków służący do analizy dziedziny projektowanego systemu
+- jest powiązana z notacją służącą do dokumentowania wyników faz projektu jako środek wspomagający ludzką pamięć i wyobraźnie i jako środek komunikacji w zespołach oraz pomiędzy projektami i klientami
 
 - Składniki metodyki
     - formalizmy, modele opisu rzeczywiścości
@@ -92,7 +103,7 @@ Inżynieria oprogramowania
 
 ### Zalety modelu kaskadowego
 
-- łatwość zarządzania przedsiwzięciem
+- łatwość zarządzania przedsięwzięciem
 - łatwość harmonogramowania poszczególnych etapów
 - łatwość określenia sumarycznych kosztów przedsięwzięcia
 - łatwość tworzenia dokumentacji
@@ -115,24 +126,24 @@ Inżynieria oprogramowania
 
 - zrozumienie jak program będzie używany i jak będzie działać
 - wynikiem tej fazy jest stworzenie dokumentu z opracowanymi wymaganiami
-    - pierwszą częścią dokumentu jest analiza przypadków użycia
-    - Identyfikacja aktorów
-    - wyznaczenie pierwszych przypadków użycia
-    - szczegółowy model dziedziny problemu
+    - Analiza przypadków użycia
+        - Identyfikacja aktorów
+        - wyznaczenie pierwszych przypadków użycia
+    - Szczegółowy model dziedziny problemu
         - model obejmuje wszystko co wiemy o danej dziedzinie
         - jako części modelu tworzone są obiekty dziedziny opisujące wszystkie obiekty uwzględnione w przypadkach użycia.
-    - tworzenie scenariuszy
+    - Scenariusze
         - scenariusz jest opisem określonego zestawu okoliczności w konkretnej sytuacji związanej z przypadkiem użycia.
-    - Sceniarusz:
-        - __Warunki wstępne__ - co musi być spełnione, aby scenariusz się rozpoczął
-        - __Niezmienniki__ - warunki, które muszą być zapewnione w trakcie trwania scenariusza
-        - Akcje, jakie podejmuje aktor
-        - Wyniki lub zamiany powodowane przez system
-        - Informacje zwrotne otrzymywane przez aktora
-        - Informacje o występnowaniu cyklicznych operacji i o tym co je powoduje
-        - Schematyczne opisy przebiegu scenariusza
-        - __Warunki końcowe__ - co musi być spełnione w momencie zakończenia scenariusza
-        - ![e](e5.png)
+        - Sceniarusz:
+            - __Warunki wstępne__ - co musi być spełnione, aby scenariusz się rozpoczął
+            - __Niezmienniki__ - warunki, które muszą być zapewnione w trakcie trwania scenariusza
+            - Akcje, jakie podejmuje aktor
+            - Wyniki lub zamiany powodowane przez system
+            - Informacje zwrotne otrzymywane przez aktora
+            - Informacje o występnowaniu cyklicznych operacji i o tym co je powoduje
+            - Schematyczne opisy przebiegu scenariusza
+            - __Warunki końcowe__ - co musi być spełnione w momencie zakończenia scenariusza
+            - ![e](e5.png)
     - Analiza aplikacji
         - często występuje konieczność współpracy z istniejącymi systemami
         - W _idealnym świecie_ zespół analizuje problem, projektuje rozwiązanie i decyduje, która platforma programistyczna i jaki system operacyjny najlepiej odpowiada potrzebom klienta.
@@ -156,7 +167,7 @@ Inżynieria oprogramowania
         - szczegóły dotyczące implementacji artefaktów systemu
 - Definiowanie klas i obiektów
 
-### Reguła Podstawowa (Liskova)
+### Reguła Podstawiania (Liskova)
 
 > Funkcje które używają wskaźników lub referencji do klas bazowych, muszą być w stanie używać również obiektów klas dziedziczących po klasach bazowych, bez dokładnej znajomości tych obiektów.
 
@@ -187,7 +198,7 @@ Inżynieria oprogramowania
 
 ## Testowanie oprogamowania
 
-- Testowanie ma na celu __werufikację__ oraz __walidację__ oprogramowania
+- Testowanie ma na celu __weryfikację__ oraz __walidację__ oprogramowania
 
 ### Weryfikacja oprogramowania
 
@@ -236,7 +247,7 @@ Inżynieria oprogramowania
 
 - Po implementacji systemu ale przed jego wdrożeniem
 - Sprawdzenie czy w kodzie nie wystąpiły błędy mające wpływ na stabilność produktu
-- Podstawą wykonania testów jrst stworzona dokumentacja w postaci dokumentów typu HDL (High Level Definition) z opisem wszystkich funkcjonalności modułu/programu. Z punktu widzenia użytkownika,  nie zagłębiając się w architekturę. 
+- Podstawą wykonania testów jest stworzona dokumentacja w postaci dokumentów typu HDL (High Level Definition) z opisem wszystkich funkcjonalności modułu/programu. Z punktu widzenia użytkownika,  nie zagłębiając się w architekturę.
 
 #### Testy integracyjne
 
