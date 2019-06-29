@@ -4,20 +4,42 @@ Inżynieria oprogramowania
 
 ## Wykład 1 - UML (Podstawy, Przypadki użycia)
 
+#### Model
+
+- Pewien zbiór ogólnych założeń, pojęć i zależności
+- Celem modelu jest stworzenie poprawnej abstakcji rzeczywistego świata
+- Tworzony dla lepszego zrozumienia dziedziny problemu oraz umożliwienia wymiany informacje w trakcie jego rozwiązywania
+- Podstawa komunikacji pomiędzy podmiotami zainteresowanymi danym problemem
+
 - Program komputerowy - model fragmentu rzeczywistości
 - Język programowania - model modelu -  *metamodel*
-- Celem modelu jest stworzenie poprawnej abstakcji rzeczywistego świata
 
-### Perspektywy:
+#### Model dziedziny problemu
+
+- Poprawna abstracja rzeczywistego świata
+- Powinien być możliwie mało skąplikowany, ale powinien poprawnie odzwierciedlać świat rzeczywisty
+
+#### UML
+
+- Służy do budowania dobrych i ogólnych modeli
+- Nie należy traktować do w sposób przesadnie ścisły
+- Nigdy całkowicie nie opisuje bytów rzeczywiście istniejących
+- Jego głównym zadaniem jest definiowanie, konstruowanie, obrazowanie i dokumentaowanie cześci składowych systemu komputerowego
+- Zawiera zbiór symboli w postaci elementów graficznych, przy pomocy których można tworzyć bardziej złożone wyrażenia w postaci diagramów
+- Celem diagramów jest zobrazowanie wielu perspektyw projektowanego systemu
+
+### Perspektywy
 
 - Perspektywa przypadków użycia
   - opisuje zachowanie systemu z punktu widzenia użytkownika, analityka, testera.
   - Zawiera elementy statyczne jak dynamiczne
+  - Diagramy: Przypadków użycia, przebiegu, kooperacji, stanów, czynności
   - Najbardziej abstrakcyjna perspektywa.
   - Nie można uzyskać kodu
 - Perspektywa projektowa
   - Na bazie pers. przypadków użycia.
   - Opis klas, interfejsów, sekwencji i kooperacji.
+  - Diagramy klas, interakcji, stanów i czynności
   - Opis problemu i jego rozwiązanie
   - Można uzyskać kod
 - Perspektywa procesowa
@@ -27,11 +49,15 @@ Inżynieria oprogramowania
   - Konfiguracja poszczególnych wersji systemu.
 - Perspektywa wdrożeniowa
   - Związek między softwarem a hardwarem
+  - Diagramy wdrożenia
 
-###  Przypadki użycia:
+### Przypadki użycia
 
 - Wymagania stawiane systemowi przez użytkownika
 - Przypadek użycia jest dobrze określoną interakcją między użytkownikiem a systemem
+- Odwzorowuje funckje systemu w sposób jaki będą je widzieć przyszli użytkowinicy.
+- Jego podstawowym zastosowaniem jest dialog z przyszłym użytkownikiem systemu zmierzający do sformułowania poprawnych wygamań odnośnie funkcjonowania systemu.
+
 - Dziedziczenie przypadku użycia:
 
 ![graf](1.png)
@@ -46,11 +72,11 @@ Zwrot skierowany w stronę bytu niezależnie logicznego
 
 ![graf](3.png)
 
-### Aktorzy:
+### Aktorzy
 
 - Osoby wchodząca w interakcję z
   - systemem
-  - systemami wewnętrznymi
+  - systemami zewnętrznymi
   - cześciami systemu, które mają wpływ na funkcjonowanie systemu, ale nie mogą być zmieniane przez system
 - Rozpoznawanie aktorów:
   - Kto będzie używał podstawowych funkcji?
