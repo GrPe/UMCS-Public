@@ -2,15 +2,21 @@
 Inżynieria oprogramowania
 ===
 
-## Wykład 5/6 - UML/OCL
+# Wykład 5/6 - UML/OCL
 
-### Relacja wyrażen (manifest) elementów logicznych przez elementy fizyczne
+## Relacja wyrażen (manifest) elementów logicznych przez elementy fizyczne
 
-- Elementy logiczne są niezależne od elementów ligicznych, przez które są wyrażane.
-- Artefakt zawierający definicję klasy (plik nagłówkowy) oznaczamy stereotypem `<<header>>`.
-- Artefakt zawierający implementację klasy oznaczamy stereotypem `<<code>>`.
+- Standardowo każda klasa powinna mieć swój własny plik nagłówkowy i jeśli to konieczne własny plik źródłowy
+    - W przypadku Javy, C#, Pascala itp. nie występuje plik nagłówkowy `<<header>>`
+- Elementy logiczne są niezależne od elementów fizycznych, przez które są wyrażane
+- Artefakt zawierający definicję klasy (plik nagłówkowy) oznaczamy stereotypem `<<header>>`
+- Artefakt zawierający implementację klasy oznaczamy stereotypem `<<code>>`
 
-![exaple](example01.png)
+![example](example01.png)
+
+- Wyrażenie elementu logicznego przez artefakt implementacyjny Javy
+
+![example](java.png)
 
 ### Pakiety
 
@@ -19,13 +25,14 @@ Inżynieria oprogramowania
 ![example](example02.png)
 
 - Oprócz artefaktów w pakiety można grupować klasy, interfejsy, komponenty, operacje, przypadki użycia, diagrami i inne pakiety.
-- Pakiety mogą udostępniać swoje elementy innym pakietom.
-- Importować elementy z innych pakietów.
+- Pakiety mogą udostępniać swoje elementy innym pakietom oraz importować elementy z innych pakietów.
 
 ![example](example03.png)
 
 - Jeśli element jest widoczny tylko w obrębie macierzystego pakietu nazywamy go elementem prywatnym.
 - Jeśli można do elementu uzyskać dostęp z zewnącz to taki element nazywamy publicznym.
+- `<<import>>` - importowanie pakietu
+- `<<access>>` - uzyskanie dostępu do pakietu lub innych elementów
 
 ![example](example04.png)
 
@@ -35,8 +42,8 @@ Inżynieria oprogramowania
 - Podstawowym elementem diagramu jest węzeł.
 - Przedstawienie architektury sprzętowej
     - `<<processor>>` - wykonuje kod programu lub komponentu
-    - `<<device>>` - przyłączone do węzła i wspólpracuje z programem (np. drukarka)/
-    - `<<pc server>>`, `<<pc client>>`, `<<user pc>>`
+    - `<<device>>` - przyłączone do węzła i wspólpracuje z programem (np. drukarka)
+    - `<<pc server>>`, `<<pc client>>`, `<<user pc>>` - oznaczenie konkretnego sprzętu
 - Architektura programowa:
     - `<<artefact>>`
     - `<<executable>>`
@@ -46,8 +53,6 @@ Inżynieria oprogramowania
 ![example](example05.png)
 
 ### Mechanizmy rozszerzania
-
-#### Mechanizny rozszerzające
 
 - __stereotypy__ - umożliwiąją rozszerzania notacji UML.
 - __notatki__ - umożliwiają rozszerzenie listy właściwości dowolnego bloku konstrukcyjnego UML.
@@ -66,8 +71,8 @@ Inżynieria oprogramowania
 
 - Proces wprowadzania zmian w projekcie/programie, w wyniku krórych zasadniczo nie zmienia się funkcjonalność systemu.
 - Jej celem jest utrzymanie odpowiedniej, wysokiej jakości organizacja struktury wewnętrzej systemu.
-- Podejmuje się 2 główne typu działań:
-    - Modyfikowanie elementów systemu w celu dostosowania ich do przyjętych standardów i/lub wzorców.
+- Podejmuje się 2 główne typy działań:
+    - Modyfikowanie elementów systemu w celu dostosowania ich do przyjętych standardów i/lub wzorców programowania
     - Poszukiwanie nowych standardów lub wzorców, które pojawiły się w systemie w trakcie jego rozwoju i ich precyzyjne definiowanie.
 - Dzięki refaktoryzacji w systemie ogranicza się nadmiarowość kodu.
 
@@ -96,13 +101,13 @@ Inżynieria oprogramowania
 
 - Poprawność można zweryfikować poprzez statyczną analizę zmienianego kodu oraz związane z przekształceniem warunków wstępnych i końcowych.
 - Przekształcenia:
-    - __Extract Method__ - wyciąga fragment kodu z rozbudowanego fragmentu i tworzy z niego nową metodę.
+    - __Extract Method__ - wyciąga fragment kodu z rozbudowanej metody i tworzy z niego nową metodę.
     - __Add Parameter__ - dodanie do sygnatury nowego parametru
 
 ### Przekształcenia o znanym zakresie testowania
 
 - __Move Method__ - Przeniesienie metody z klasy do klasy
-- __Change Undirectional Association to Bi-directional__ - zmiana polega, że oba obiekty będą posiadały odwołania do siebie nawzajem.
+- __Change Undirectional Association to Bi-directional__ - zmiana oznacza, że oba obiekty będą posiadały odwołania do siebie nawzajem.
 - __Remove Setter__ - usunięcie metod zmieniających stan obiektu.
 
 ### Przekształcenia o nieznanym zakresie testowania
