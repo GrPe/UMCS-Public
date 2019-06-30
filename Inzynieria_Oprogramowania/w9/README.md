@@ -19,6 +19,7 @@ Inżynieria oprogramowania
 - Inżynierowie odpowiedzialni za projekt analizują wymagania klienta.
 - Dobór technik odpowiednich do realizacji projektu.
 - Przygotowanie ogólnej specyfikacji oprogramowania.
+- Dokumentacja testowania systemu.
 
 ### Architektura projektu
 
@@ -26,17 +27,18 @@ Inżynieria oprogramowania
 - Pełna lista modułów. Opis ich funkcjonalności, relacje między nimi itp..
 - Konstrukcja testów integracyjnych
 
-### Architektura komponentów 
+### Architektura komponentów
 
 - Logicznie jak i fizycznie
-- Niski poziom abstacji (komponenty, moduły)
-- Szczegóły funkcjonalne logiki komponentu (modułu), wszystkie szczegóły interfajsów, komplente API
+- Niski poziom abstrakcji (komponenty, moduły)
+- Szczegóły funkcjonalne logiki komponentu (modułu), wszystkie szczegóły interfejsów, kompletne API
+- Wszystko opisane tak, żeby programista mógł zacząć pisać kod.
 
 ### Zalety modelu V
 
 - W miarę dokładnie odzwierciedla zależności, jakie powinny łączyć kolejne etapy projektu.
 - Bardzo wczesne utworzenie specyfikacji testowej.
-- Jeden z naważniejszych modeli tworzenia oprogramowania.
+- Jeden z najważniejszych modeli tworzenia oprogramowania.
 - Mało szczegółowy i mało wydajny (???? WTF)
 - daje obraz idealnego świata kooperacji między architaktami, programistami, testerami i klientami.
 
@@ -52,21 +54,21 @@ Inżynieria oprogramowania
 
 ![e](4.png)
 
-### Cele 
+### Cele
 
 - Wykrycie nieporozumień pomiędzy klientami a twórcami systemu
 - Wykrycie brakujących funkcji systemu
 - Wykrycie trudnych do zaimplementowania usług
 - Wykrycie braków w specyfikacji wymagań
 
-- Prototypowania zwiększa koszt przedsięwzięcia, jednak nie musi być
+- Prototypowania zwiększa koszt przedsięwzięcia, jednak prototyp nie musi być
     - w pełni ukończony
     - od początku niezawodny ani starannie przetestowany
     - działać szybko
 
 ### Zalety
 
-- Lepsze pozdanie potrzeb i wymagań użytkowników
+- Lepsze poznanie potrzeb i wymagań użytkowników
 - szybka demonstracja pracującej wesji systemu
 
 ### Wady
@@ -109,7 +111,9 @@ Inżynieria oprogramowania
 
 ## XP - Programowanie ekstremalne
 
-- Należy do metodyk zwinnych
+- Ma na celu wydajne tworzenie małych i średnich projektów wysokiego ryzyka, czyli takich, w których nie wiadomo co tak naprawdę należy wykonać i jak to prawidłowo przeprowadzić.
+- Należy do metodyk zwinnych (Agile)
+
 - Programista w centrum zainteresowanie (powiało renesansem)
 - Korzystanie z wzorców architektonicznych, projektowych oraz idiomów
 - Uznanie kodu za dokumentację projektu
@@ -126,5 +130,5 @@ Inżynieria oprogramowania
 
 - Komunikacja w zespołach
 - Prostota
-- Informacja zwrotna
+- Informacja zwrotna (od klienta oraz na podstawie wyników testów)
 - Odwaga w podejmowaniu i wdrażaniu kluczowych decyzji, wynikających z wysokiego profesjonalizmu, przy pełnej świadomości odpowiedzialności za podjęte decyzje.
