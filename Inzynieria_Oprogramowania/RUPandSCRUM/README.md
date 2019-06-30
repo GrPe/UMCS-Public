@@ -84,7 +84,7 @@ Inżynieria oprogramowania
 
 ## Scrum
 
-- Motoda wywodząca się z Agile
+- Metoda wywodząca się z Agile
 - Określa zasady postępowania dla zespołu
 - Nie opisuje ani nie podpowiada jak należy zbudować organizację, by Scrum działał w niej dobrze
 
