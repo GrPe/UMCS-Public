@@ -11,9 +11,9 @@ Inżynieria oprogramowania
 - Graficzne projektowanie oprogramowania
 - Kontrola jakości oprogramowania
 - Proces kontroli zmian w oprogramowaniu
-- Ułatwiające integrację całości kodu i dostosowywanie do zmiennych wymagań
 - Używanie architektury bazującej na komponentach
-- Integracja poszczególnych części systemu przebiega stopniowo, podzielona jest na kilka etapów
+    - Ułatwiające integrację całości kodu i dostosowywanie do zmiennych wymagań
+    - Integracja poszczególnych części systemu przebiega stopniowo, podzielona jest na kilka etapów
 
 - Cykl wytwórczy jest charakterystyczny, bo pokazuje procesy w dwóch płaszczyznach.
 - W pionie przedstawione są statyczne aspekty wytwarzania oprogramowania.
@@ -81,3 +81,42 @@ Inżynieria oprogramowania
 - Jest ulepszany i rozwijany
 - Posiada "solidną" architekturę, która może być przystosowana do konkretnych potrzeb użytkownika
 - Posiada całą paletę wspierających narzędzi
+
+## Scrum
+
+- Motoda wywodząca się z Agile
+- Określa zasady postępowania dla zespołu
+- Nie opisuje ani nie podpowiada jak należy zbudować organizację, by Scrum działał w niej dobrze
+
+### Role w Scrumie
+
+#### Product Owner
+
+- Posiada wizję produktu
+- Określa kolejność realizacji zadań
+
+#### Scrum Master
+
+- Skupia się na działaniu zespołu
+- Pomaga zwiększyć efektywność współpracy
+
+#### Scrum Team
+
+- W jego skład wchodzą wszyscy specjaliści niezbędni do wykonania zadania (nie tylko programiści)
+- Źródłem wymagań jest backlog produktu
+
+### Proces Scrum
+
+- Zespół dostarcza kolejne wersje działającego produktu w krótkich cyklach zwanych Sprintami
+- Sprint jest ograniczony czasowo i trwa maksymalnie miesiąć
+- Krótka długość sprintu gwarantuje produkt ownerowi, że gdy zdarzy się coś złego, to nie straci więcej czasu niż długość spritu
+- Zespół razem PO ustala co dokładnie znaczy, że produkt działa
+
+- Produkt Owner umieszcza listę wszystkich potrzeb w Backlogu Produktu w kolejności od najważniejszej
+- Zespół na początku sprintu ustala co jet w stanie dostarczyć z Backlogu Produktu (Planowanie Sprintu - Sprint Planning)
+    - Nie powinno trwać dłużej niż jeden dzień
+    - Plan realizacji zadań nazywamy __Sprint Backlog__
+- Codziennie zespół spotyka się na któtkie (15 min) spotkanie, by omówić postęp prac itp. (__Daily SCRUM__)
+- Zespół przygotowuje się do następnego Sprintu poprzez __Porządkowanie Backlogu produktu__
+- Po zakończeniu Sprintu odbywa się __Sprint Review__, gdzie zespół wraz z PO pokazuje co stworzył w trakcie Sprintu, żeby zebrać feedback od przyszłych użytkowników itp.
+- Następnie w swoim gronie w trakcie __Sprint Retrospective__ zespół ustala jak może pracować skuteczniej
