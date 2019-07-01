@@ -60,7 +60,7 @@ określone rozwiązanie milion razy i nigdy nie zrobić tego tak samo
 
 ![singleton](singleton.png)
 
-### Fabryka abstrakcyjna 
+### Fabryka abstrakcyjna
 
 - Udostępnia interfejs do tworzenia rodzin powiązanych ze sobą lub zależnych od siebie obiektów bez określenia ich klas konkretnych
 - Kiedy?
@@ -69,3 +69,65 @@ określone rozwiązanie milion razy i nigdy nie zrobić tego tak samo
     - Istnieje potrzeba dostarczenia biblioteki klas, posługując się jedynie ich interfejsami, a nie implementacją
 
 ![abstrFact](abstrFact.png)
+
+## Wzorce strukturalne
+
+### Adapter
+
+- Przekształca interfejs klasy na inny, oczekiwany przez klienta. Adapter umożliwia wspołdziałanie klasom, które z uwagi na niezgodne interfejsy standardowo nie mogą współpracować ze sobą
+
+![adapter](adapter.png)
+
+### Dekorator
+
+- Dynamicznie dołącza dodatkowe obowiązki do obiektu. Wzorzec ten udostępnia alternatywny elastyczny sposób tworzenia podklas o wzbogaconych funkcjach
+
+![decorator](decorator.png)
+
+### Fasada
+
+- Udostępnia jednolity interfejs dla zbioru interfejsów z podsystemu. Fasada określa interfejs wyższego poziomu ułatwiający korzystanie z podsystemów.
+
+![facade](facade.png)
+
+### Kompozyt
+
+- Składa obiekty w struktury drzewiaste odzwierciedlające hierarchę typu część-całość. Wzorzec ten umożliwia klientom traktowanie poszczególnych obiektów i ich złożeń w ten sam sposób
+
+![composite](composite.png)
+
+### Most
+
+- Oddziela abstakcję od jej implementacji, dzięki czemu można modyfikować te dwa elementy niezależnie od siebie
+- Zamiana dziedziczenia na kompozycję -> abstrakcja deleguje pracę do implementacji
+
+![bridge](bridge.png)
+![example](example.png)
+
+### Pełnomocnik (Proxy)
+
+- Udostępnia zastępnik lub reprezentanta innego obiektu w celu kontrolowania dostępu do niego
+
+#### Rodzaje proxy
+
+- Pośrednik wirtualny (virtual proxy)
+    - Wykorzystywany w sytuacji, gdzie obiekt, który trzeba zastąpić jest bardzo "ciężki"
+    - Opóźnia proces tworzenia takiego obiektu, do czasu, gdy ten nie jest potrzebny
+- Pośrednik zabezpieczający (protected proxy)
+    - Zabezpiecza dostęp do obiektu
+- Pośrednik zdalny (remote proxy)
+    - Reprezentuje obiekt znajdujący się np. w innym komputerze (dostęp przez sieć)
+    - Od strony klienta wszystkie odwołania od niego wyglądają na lokalne
+
+![proxy](proxy.png)
+
+### Pyłek
+
+- Wykorzystuje współdzielenie do wydajnej obsługi dużej liczby małych obiektów
+- Optymalizacja wykorzystania RAM
+- Ogólnie polega na wydzieleniu części klasy, która jest niezmienna w trakcie życia obiektu np. tekstury
+
+![fly](flyweight.png)
+
+- 1: Wydzielona część klasy (niezmienna)
+- 3: Klasa, z której wydzieliliśmy pyłek. Wszystkie obiekty tej klasy zawierają tylko referencję do pyłku.
